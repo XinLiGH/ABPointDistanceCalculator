@@ -32,21 +32,13 @@ void MainWindow::on_computePushButton_clicked()
        (ui->bXLineEdit->text().isEmpty() == false) &&
        (ui->bYLineEdit->text().isEmpty() == false))
     {
-        double aX = 0.0;
-        double aY = 0.0;
+        double aX = QString(ui->aXLineEdit->text()).toDouble(NULL);
+        double aY = QString(ui->aYLineEdit->text()).toDouble(NULL);
 
-        double bX = 0.0;
-        double bY = 0.0;
+        double bX = QString(ui->bXLineEdit->text()).toDouble(NULL);
+        double bY = QString(ui->bYLineEdit->text()).toDouble(NULL);
 
-        double d = 0.0;
-
-        aX = QString(ui->aXLineEdit->text()).toDouble(NULL);
-        aY = QString(ui->aYLineEdit->text()).toDouble(NULL);
-
-        bX = QString(ui->bXLineEdit->text()).toDouble(NULL);
-        bY = QString(ui->bYLineEdit->text()).toDouble(NULL);
-
-        d = pow(pow(aX - bX, 2.0) + pow(aY - bY, 2.0), 1.0 / 2.0);
+        double d = pow(pow(aX - bX, 2.0) + pow(aY - bY, 2.0), 1.0 / 2.0);
 
         ui->distanceLineEdit->setText(QString::number(d, 'g', 20));
     }
